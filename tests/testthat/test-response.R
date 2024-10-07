@@ -139,9 +139,9 @@ test_that("Response", {
   # png
   img <- "logo.png"
   resp <- res$png(img)
-  response <- resp$body |> 
-    head() |> 
-    as.character() |> 
+  response <- resp$body %>% 
+    head() %>% 
+    as.character() %>% 
     paste0(collapse = "")
   expect_equal(
     response,
@@ -150,9 +150,9 @@ test_that("Response", {
 
   # image
   resp <- res$image(img)
-  response <- resp$body |> 
-    head() |> 
-    as.character() |> 
+  response <- resp$body %>% 
+    head() %>% 
+    as.character() %>% 
     paste0(collapse = "")
   expect_equal(
     response,
@@ -164,9 +164,9 @@ test_that("Response", {
   # ggplot2
   plot <- ggplot2::ggplot(cars)
   resp <- res$ggplot2(plot)
-  response <- resp$body |> 
-    head() |> 
-    as.character() |> 
+  response <- resp$body %>% 
+    head() %>% 
+    as.character() %>% 
     paste0(collapse = "")
   expect_equal(
     response,

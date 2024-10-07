@@ -45,7 +45,7 @@ replace_partial <- function(line, dir) {
     line
   ) 
 
-  path <- gsub("\\[!|!\\]", "", line) |> 
+  path <- gsub("\\[!|!\\]", "", line) %>% 
     trimws()
 
   # construct new base directory
@@ -72,7 +72,7 @@ replace_partial <- function(line, dir) {
 #' 
 #' @keywords internal
 get_dir <- function(file) {
-  normalizePath(file) |> 
+  normalizePath(file) %>% 
     dirname()
 }
 
@@ -84,8 +84,8 @@ get_dir <- function(file) {
 #' 
 #' @keywords internal
 apply_replace_partial <- function(content, dir) {
-  sapply(content, replace_partial, dir) |> 
-    unname() |> 
+  sapply(content, replace_partial, dir) %>% 
+    unname() %>% 
     unlist()
 }
 
@@ -117,8 +117,8 @@ robj <- function(obj){
 print.robj <- function(x, ...){
   cli::cli_alert_info("R object")
   class(x) <- class(x)[!class(x) %in% "robj"]
-  x |> 
-    dput() |> 
+  x %>% 
+    dput() %>% 
     print()
 }
 
@@ -138,7 +138,7 @@ jobj <- function(obj) {
 #' @export
 print.jobj <- function(x, ...){
   cli::cli_alert_info("JSON object")
-  serialise(x, ...) |> 
+  serialise(x, ...) %>% 
     print()
 }
 

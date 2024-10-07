@@ -371,7 +371,7 @@ Routing <- R6::R6Class(
         return()
 
       indices <- seq_along(private$.routes)
-      pats <- lapply(private$.routes, \(route) {
+      pats <- lapply(private$.routes, function(route) {
         data.frame(
           pattern = route$route$pattern,
           dynamic = route$route$dynamic
